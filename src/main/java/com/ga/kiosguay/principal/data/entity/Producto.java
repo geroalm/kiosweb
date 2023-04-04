@@ -22,10 +22,10 @@ public class Producto {
     private Long id;
 
     @Column(unique = true, name = "nombre_prod")
-    private String nombreProducto;
+    private String nombre;
 
     @Column(unique = true, name = "codigo_prod")
-    private String codigoProducto;
+    private String codigo;
 
     @Column(unique = true)
     private String serial;
@@ -38,11 +38,14 @@ public class Producto {
     private List<ProductoTag> tags = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
+
     private Marca marca;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private CategoriaProducto categoria;
+
     private String descripcion;
+
     private double precio;
 
     @Temporal(TemporalType.TIMESTAMP)

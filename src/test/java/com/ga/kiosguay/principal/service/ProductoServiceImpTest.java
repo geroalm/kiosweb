@@ -27,6 +27,7 @@ class ProductoServiceImpTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         prod = new Producto();
+        prod.setId(1L);
         prod.setNombreProducto("ProdMokit");
         prod.setCodigoProducto("cod01010101");
         prod.setDescripcion("Descrip cod110100101");
@@ -38,9 +39,10 @@ class ProductoServiceImpTest {
         assertNotNull(service.getAllProductos());
     }
 
-    @Test
-    void getProductoPorId() {
-    }
+//    @Test
+//    void getProductoPorId() {
+//        when(productoRep.findById()).thenReturn(prod);
+//    }
 
     @Test
     void saveProducto() {
