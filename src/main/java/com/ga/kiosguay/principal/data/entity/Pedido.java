@@ -12,21 +12,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Venta extends Movimiento {
-
+public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "DETALLE_VENTA")
-    private String detalleVenta;
+    private String detallePedido;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Pedido pedido;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Cliente cliente;
 
-
-
-
-
-
+    @OneToMany(mappedBy = "venta")
+    private List<ItemVenta> listaItemsVenta = new ArrayList<ItemVenta>();
 }

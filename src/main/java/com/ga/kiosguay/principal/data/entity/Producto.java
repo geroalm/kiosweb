@@ -30,6 +30,8 @@ public class Producto {
     @Column(unique = true)
     private String serial;
 
+    private long iva;
+
     @ManyToMany
     @JoinTable(name = "Productos_tags",
             joinColumns = {@JoinColumn(name = "producto_id")},

@@ -20,7 +20,7 @@ INSERT INTO marca (nombre, detalle) VALUES ('Doritos', 'Marca de snacks y tortil
 INSERT INTO marca (nombre, detalle) VALUES ('Wrigley''s', 'Marca de chicles y caramelos');
 
 --Categorias
-INSINSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Refrescos', 'Productos de refrescos de las marcas Coca-Cola y Pepsi');
+INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Refrescos', 'Productos de refrescos de las marcas Coca-Cola y Pepsi');
 INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Pan', 'Productos de pan de la marca Bimbo');
 INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Alimentos', 'Productos de alimentos de la marca Nestlé');
 INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Cereales', 'Productos de cereales de la marca Kellogg''s');
@@ -30,7 +30,7 @@ INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Bebidas deportivas
 INSERT INTO CATEGORIA_PRODUCTO (nombre, descripcion) VALUES ('Bebidas energéticas', 'Productos de bebidas energéticas de la marca Red Bull');
 
 INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Coca-Cola','1245','Refresco de cola de la marca Coca-Cola',1,1, 'ABCD12',250,0,NOW());
-INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Bimbo Pan Blanco','3987','Pan blanco de la marca Bimbo',1,2, 'KLMN34',340,0,NOW());
+INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Bimbo Pan Blanco','3987','Pan blanco de la marca Bimbo',2,2, 'KLMN34',340,0,NOW());
 INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Nestlé Chocolate','7831','Crunch	Chocolate con cereal de la marca Nestlé',5,4, 'PQR789',850,0,NOW());
 INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Kelloggs Corn Flakes','9256','Kelloggs Corn Flakes	Cereales de maíz de la marca Kellogg',3,5, 'XYZ123',486,0,NOW());
 INSERT INTO PRODUCTO (nombre_prod, codigo_prod, descripcion, categoria_id, marca_id, serial, precio, estado, fecha_alta) VALUES ( 'Lays Papas Fritas','2568','Lays Papas Fritas	Papas fritas de la marca Lays',4,6, 'DEF456',730,0,NOW());

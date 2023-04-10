@@ -25,6 +25,7 @@ public interface ProductoService {
     public List<Producto> findBySerial (String pSerial);
 
     public List<Producto> findByNombre (String pNombre);
+    public List<Producto> findByNombreContaining (String pNombre);
 
     public List<Producto> findByCodigo (String pCcodigo);
 

@@ -5,27 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Venta extends Movimiento {
-
+public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "DETALLE_VENTA")
-    private String detalleVenta;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Pedido pedido;
-
-
-
+    private String nombre;
+    private String cuit;
+    private String descripcion;
+    private String responsable;
+    private String telefono;
+    private String direccion;
+    private String celular;
 
 
 

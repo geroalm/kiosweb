@@ -56,6 +56,11 @@ public class ProductoServiceImp implements ProductoService {
     }
 
     @Override
+    public List<Producto> findByNombreContaining(String pNombre) {
+        return productoRep.findByNombreContaining(pNombre);
+    }
+
+    @Override
     public List<Producto> findByCodigo(String pCodigo) {
         return findByCodigo(pCodigo);
     }
