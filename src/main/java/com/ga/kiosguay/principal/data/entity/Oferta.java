@@ -8,22 +8,30 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Pedido {
+@Data
+public class Oferta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @PrimaryKeyJoinColumn(name = "pk_pedido_id")
+    @PrimaryKeyJoinColumn(name = "pk_oferta_id")
     private Long id;
-    @Column(name = "DETALLE_VENTA")
-    private String detallePedido;
+
+    @OneToMany(mappedBy = "oferta", fetch = FetchType.LAZY)
+    List<ItemOferta> itemsOferta = new ArrayList<ItemOferta>();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_pedido_cliente"))
-    private Cliente cliente;
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_oferta-validezOferta"))
+    private ValidezOferta validez;
 
-    @OneToMany(mappedBy = "pedido")
-    private List<ItemPedido> listaItemsVenta = new ArrayList<ItemPedido>();
+    private String nombre;
+
+    private String detalle;
+
+
+
+
+
 }

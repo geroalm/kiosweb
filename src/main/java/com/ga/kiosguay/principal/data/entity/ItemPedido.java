@@ -9,19 +9,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class ItemVenta {
+public class ItemPedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_itempedido_id")
+
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_venta")
+    @JoinColumn(name= "id_pedido", foreignKey = @ForeignKey(name = "fk_itempedido_pedido"))
+    private Pedido pedido;
 
-
-    private Venta venta;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_producto")
+    @JoinColumn(name = "id_producto",foreignKey = @ForeignKey(name = "fk_itempedido_producto"))
     private Producto producto;
 
     //precio al momento de la venta

@@ -17,15 +17,16 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_cliente_id")
     private Long id;
     private String nombre;
     private String apellido;
-    private String razonSocial;
+    private String razonsocial;
     private String dni;
     private String direccion;
-    private String direccionEntrega;
+    private String direccionentrega;
     private String telefono;
-    private String telefonoAlt;
+    private String telefonoalt;
     private String detalle;
 
 

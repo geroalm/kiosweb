@@ -92,7 +92,7 @@ public class ProductoController {
             if(!locProd.isPresent()){
                 return ResponseEntity.notFound().build();
             }
-            Producto prod = new Producto();
+            Producto prod = locProd.get();
             BeanUtils.copyProperties(nuevoProdDTO,prod,"id");
 
             Optional<Marca> OMarca = basicService.getMarcaById(nuevoProdDTO.getMarca());

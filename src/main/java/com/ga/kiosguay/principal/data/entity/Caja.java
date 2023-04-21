@@ -12,8 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 public class Caja {
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_caja_id")
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)

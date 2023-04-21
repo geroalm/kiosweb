@@ -23,6 +23,7 @@ public interface  ProductoRepository extends JpaRepository<Producto, Long> {
 
     public List<Producto> findByNombreContaining(String pNombre);
 
+
     public List<Producto> findByCodigo (String pCodigo);
 
 /*    @Query("SELECT p FROM Producto p JOIN p.marca m JOIN p.categoria c " +

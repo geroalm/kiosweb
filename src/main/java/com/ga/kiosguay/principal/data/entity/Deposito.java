@@ -5,14 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Empleado {
+public class Deposito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @PrimaryKeyJoinColumn(name = "pk_empleado_id")
+    @PrimaryKeyJoinColumn(name = "pk_deposito_id")
     private Long id;
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_deposito_sucursal"))
+    private Sucursal sucursal;
+
+    private String nombre;
+    private String descripcion;
+    private String codigo;
+
+
 
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public class CategoriaProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_categoria_producto_id")
     private Long id;
 
     @Column(name = "nombre")
@@ -24,6 +25,7 @@ public class CategoriaProducto {
     private String descripcion;
 
     @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_categoriaproducto_producto"))
     private CategoriaProducto categoriaPadre;
 
     @OneToMany(mappedBy = "categoriaPadre")

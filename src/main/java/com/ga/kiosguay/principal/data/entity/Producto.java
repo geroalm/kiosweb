@@ -17,8 +17,10 @@ public class Producto {
     public enum Estado{
         ACTIVO,INACTIVO
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_producto_id")
     private Long id;
 
     @Column(unique = true, name = "nombre_prod")
@@ -30,25 +32,24 @@ public class Producto {
     @Column(unique = true)
     private String serial;
 
-    private long iva;
+    private Long iva = 21L;
 
     @ManyToMany
     @JoinTable(name = "Productos_tags",
-            joinColumns = {@JoinColumn(name = "producto_id")},
-            inverseJoinColumns = { @JoinColumn(name = "tag_id")}
+            joinColumns = {@JoinColumn(name = "producto_id", foreignKey = @ForeignKey(name = "fk_productostags_producto"))},
+            inverseJoinColumns = { @JoinColumn(name = "tag_id", foreignKey = @ForeignKey(name = "fk_productostags_tag"))}
     )
     private List<ProductoTag> tags = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
-
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_producto_marca"))
     private Marca marca;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_producto_categoria"))
     private CategoriaProducto categoria;
 
     private String descripcion;
-
-    private double precio;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaAlta;
@@ -56,10 +57,20 @@ public class Producto {
     @Enumerated(EnumType.ORDINAL)
     private Estado estado = Estado.ACTIVO;
 
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_producto_medida"))
+    private Medida medida;
+
+    private long precioLista;
+
+    @OneToOne
+    @JoinColumn(name = "stock_id",foreignKey = @ForeignKey(name = "fk_producto_stock"))
+    private Stock stock;
 
     @PrePersist
     public void prePersist() {
         fechaAlta = new Date();
     }
+
 
 }

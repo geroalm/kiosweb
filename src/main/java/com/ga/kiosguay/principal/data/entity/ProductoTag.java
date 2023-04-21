@@ -15,6 +15,8 @@ import java.util.List;
 public class ProductoTag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @PrimaryKeyJoinColumn(name = "pk_productoTag_id")
+
     private Long id;
 
     private String tag;
